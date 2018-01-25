@@ -1,11 +1,19 @@
-var a = 10;
-var b = 15;
-function add() {
-  a = 5;
-  var b = 5;
-  console.log(a + b);
+function createCounter () {
+  var count = 0
+  return function() {
+    count++;
+    console.log(count);
+  }
 }
 
-add(); //10
-console.log(a);  //5
-console.log(b);  //15
+var counter1 = createCounter();
+counter1(); //1
+counter1(); //2
+counter1(); //3
+
+var counter2 = createCounter();
+counter2(); //1
+counter2(); //2
+count = 100;
+
+counter1(); //4
